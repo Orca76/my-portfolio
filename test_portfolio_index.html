@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YUSEI — Portfolio (Test)</title>
+  <meta name="description" content="Yusei's test portfolio: Unity / Unreal / Python (Dash) / HMI research." />
+  <meta property="og:title" content="YUSEI — Portfolio" />
+  <meta property="og:description" content="Unity / Unreal / Python (Dash) / HMI research." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <style>
+    :root{
+      --bg: #0b1020; /* deep navy */
+      --panel: #121a2d;
+      --ink: #e6eefc;
+      --muted: #94a3b8;
+      --accent: #38bdf8; /* cyan-400 */
+      --accent-2: #a78bfa; /* violet-400 */
+      --ring: rgba(56,189,248,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:radial-gradient(1200px 800px at 70% -10%, rgba(167,139,250,.22), transparent 60%),
+               radial-gradient(1000px 600px at -10% 20%, rgba(56,189,248,.18), transparent 60%), var(--bg);
+               color:var(--ink); font: 15px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif}
+    a{color:var(--ink); text-decoration:none}
+    .wrap{max-width:1100px; margin:0 auto; padding:24px}
+    header{position:sticky; top:0; backdrop-filter: blur(8px); background: linear-gradient(180deg, rgba(11,16,32,.85), rgba(11,16,32,.55)); border-bottom:1px solid rgba(255,255,255,.05); z-index:10}
+    nav{display:flex; align-items:center; gap:16px; justify-content:space-between; padding:12px 0}
+    nav .brand{font-weight:700; letter-spacing:.4px}
+    nav .tabs a{padding:8px 12px; border-radius:10px; color:var(--muted)}
+    nav .tabs a:hover{background:rgba(255,255,255,.06); color:var(--ink)}
+
+    .hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; align-items:center; padding:36px 0 28px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:rgba(56,189,248,.12); color:var(--accent)}
+    h1{font-size:36px; line-height:1.2; margin:10px 0}
+    .lead{color:var(--muted)}
+    .cta{display:flex; gap:12px; margin-top:18px}
+    .btn{padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:#0f172a; color:var(--ink)}
+    .btn.primary{background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b1020; border:none; font-weight:700}
+    .btn:hover{box-shadow:0 0 0 6px var(--ring)}
+
+    /* card grid */
+    section{margin:40px 0}
+    .grid{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px}
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} }
+    @media (max-width: 640px){ .grid{grid-template-columns:1fr} h1{font-size:28px} }
+
+    .card{position:relative; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); border-radius:16px; overflow:hidden}
+    .card:hover{box-shadow:0 10px 30px rgba(0,0,0,.35); transform: translateY(-1px)}
+    .thumb{aspect-ratio:16/9; background: #0a0f1f; display:flex; align-items:center; justify-content:center}
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.05)}
+    .card .body{padding:14px}
+    .card h3{margin:0 0 6px 0; font-size:18px}
+    .stack{color:var(--muted); font-size:13px}
+    .pill{display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; background:rgba(167,139,250,.18); color:#dcd6ff; margin-right:6px}
+
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:16px}
+    footer{color:var(--muted); padding:40px 0 20px}
+
+    /* tiny three.js canvas holder */
+    #gl-holder{height:260px; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.06); background:radial-gradient(600px 300px at 70% -10%, rgba(120,119,198,.25), transparent 60%), #0b1020}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">YUSEI / Portfolio (Test)</div>
+        <div class="tabs">
+          <a href="#works">Works</a>
+          <a href="#research">Research</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="badge">🚢 Game & Data · Unity / Unreal / Python(Dash)</span>
+        <h1>「作品が先に語る」ための、超シンプルなテスト版ポートフォリオ。</h1>
+        <p class="lead">Unityの島探索ゲーム、Unrealのタンクゲーム、Python DashのBIダッシュボード、HMI研究などをカードで一覧。あとでNext.jsへ移行しても、このHTML一枚をそのまま中身として使えます。</p>
+        <div class="cta">
+          <a class="btn primary" href="#works">作品を見る</a>
+          <a class="btn" href="#contact">連絡先</a>
+        </div>
+      </div>
+      <div id="gl-holder" aria-label="tiny-3D-demo"></div>
+    </section>
+
+    <section id="works">
+      <h2>Works</h2>
+      <div id="works-grid" class="grid" aria-live="polite"></div>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <div class="panel">
+        <p><strong>Topic:</strong> 自動運転での権限移譲時のHMI（情報提示）設計。Unityベースのドライビングシミュレータで実験・分析。</p>
+        <p><strong>Artifacts:</strong> 学会スライド, ポスター, 既存研究レビュー（PDFリンク想定）。</p>
+      </div>
+    </section>
+
+    <section id="blog">
+      <h2>Notes / Blog</h2>
+      <div id="blog-grid" class="grid"></div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="panel">
+        <p>GitHub / X(Twitter) / Email をここに。フォームは <em>formspree.io</em> などの外部SaaSを後で接続できます。</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> YUSEI. Built with plain HTML + a sprinkle of three.js. Ready to deploy on Vercel as static hosting.</p>
+    </footer>
+  </main>
+
+  <!-- three.js (tiny demo) -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script>
+    // --- minimal three.js cube to show motion ---
+    const holder = document.getElementById('gl-holder');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, holder.clientWidth/holder.clientHeight, 0.1, 100);
+    camera.position.set(2.2, 1.8, 3.4);
+
+    const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(holder.clientWidth, holder.clientHeight);
+    holder.appendChild(renderer.domElement);
+
+    const geo = new THREE.BoxGeometry(1.2, .9, 2.2);
+    const mat = new THREE.MeshStandardMaterial({ color: 0x8ab4ff, metalness: 0.65, roughness: 0.25 });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.rotation.y = 0.4;
+    scene.add(mesh);
+
+    const light1 = new THREE.DirectionalLight(0xffffff, 1.0); light1.position.set(2,3,4); scene.add(light1);
+    const light2 = new THREE.PointLight(0x7aa2f7, 0.8, 8); light2.position.set(-2,1.2,1); scene.add(light2);
+    const ambient = new THREE.AmbientLight(0xffffff, 0.35); scene.add(ambient);
+
+    const clock = new THREE.Clock();
+    function tick(){
+      const t = clock.getElapsedTime();
+      mesh.rotation.y += 0.0045; mesh.position.y = 0.05*Math.sin(t*1.5);
+      renderer.render(scene, camera); requestAnimationFrame(tick);
+    }
+    tick();
+
+    addEventListener('resize', () => {
+      const w = holder.clientWidth, h = holder.clientHeight;
+      camera.aspect = w/h; camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    });
+  </script>
+
+  <!-- simple data-driven cards (edit here) -->
+  <script>
+    const works = [
+      { title: 'ROGUE SEAS (WIP)', stack: ['Unity','C#','Procedural Gen'], thumb: '', url: '#' , desc:'島探索×ローグライク。ノイズ地形・セントリー召喚。'},
+      { title: 'CHRONO RICOCHET', stack: ['Unreal','Blueprint'], thumb: '', url: '#', desc:'見下ろしタンク。弾丸反射×テンポ高速。'},
+      { title: 'BI Dashboard', stack: ['Python','Dash','Plotly'], thumb: '', url: '#', desc:'ID-POS分析のLooker代替。Docker配布を想定。'},
+    ];
+
+    const posts = [
+      { title: 'HMI実験の設計メモ', date: '2025-10-20', url:'#' },
+      { title: 'Unity：インベントリの設計指針', date: '2025-10-10', url:'#' },
+      { title: 'Dash：マルチページ構成の分割', date: '2025-10-05', url:'#' },
+    ];
+
+    const W = document.getElementById('works-grid');
+    works.forEach(w=>{
+      const el = document.createElement('article'); el.className='card';
+      el.innerHTML = `
+        <a href="${w.url}" target="_blank" rel="noopener">
+          <div class="thumb">${w.thumb?`<img src="${w.thumb}" alt="${w.title}">`:'<span style="opacity:.6">(screenshot later)</span>'}</div>
+          <div class="body">
+            <h3>${w.title}</h3>
+            <div class="stack">${w.stack.map(s=>`<span class='pill'>${s}</span>`).join(' ')}</div>
+            <p style="margin:.5rem 0 0; color:var(--muted)">${w.desc||''}</p>
+          </div>
+        </a>`;
+      W.appendChild(el);
+    });
+
+    const B = document.getElementById('blog-grid');
+    posts.forEach(p=>{
+      const el = document.createElement('article'); el.className='card';
+      el.innerHTML = `
+        <a href="${p.url}" target="_blank" rel="noopener">
+          <div class="body">
+            <h3>${p.title}</h3>
+            <div class="stack">${p.date}</div>
+            <p style="margin:.5rem 0 0; color:var(--muted)">（本文はZennやはてなに置いてもOK）</p>
+          </div>
+        </a>`;
+      B.appendChild(el);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
