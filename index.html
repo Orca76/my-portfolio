@@ -9,6 +9,7 @@
   <meta property="og:description" content="Unity / Unreal / Python (Dash) / HMI research." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0ea5e9" />
+
   <style>
     :root{
       --bg: #0b1020; /* deep navy */
@@ -60,7 +61,11 @@
 
     /* tiny three.js canvas holder */
     #gl-holder{height:260px; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.06); background:radial-gradient(600px 300px at 70% -10%, rgba(120,119,198,.25), transparent 60%), #0b1020}
-  </style>
+  /* ---- make the whole card reliably clickable ---- */
+.card > a{ display:block; height:100%; }
+.card a{ text-decoration:none; }
+.card.clickable{ cursor:pointer; } 
+ </style>
 </head>
 <body>
   <header>
@@ -163,9 +168,17 @@
   <!-- simple data-driven cards (edit here) -->
   <script>
     const works = [
-      { title: 'ROGUE SEAS (WIP)', stack: ['Unity','C#','Procedural Gen'], thumb: '', url: '#' , desc:'島探索×ローグライク。ノイズ地形・セントリー召喚。'},
-      { title: 'CHRONO RICOCHET', stack: ['Unreal','Blueprint'], thumb: '', url: '#', desc:'見下ろしタンク。弾丸反射×テンポ高速。'},
-      { title: 'BI Dashboard', stack: ['Python','Dash','Plotly'], thumb: '', url: '#', desc:'ID-POS分析のLooker代替。Docker配布を想定。'},
+     {title: 'アイルトレイル (WIP)',stack: ['Unity','C#','Procedural Gen'],thumb: 'source/rogue-seas-thumb.png', url: '#',desc:'島探索×ローグライク。航海・セントリー召喚。',},
+      { title: 'RUNE CRAFT DUNGEON', stack: ['Unreal','Blueprint'], thumb: 'source/RuneCraft-thumb.png', url: '#', desc:'オリジナル魔法構築、自動生成ダンジョン探索'},
+      { title: '単語学習アプリ', stack: ['Python','Dash','Plotly'], thumb: 'source/studyword_thumb.png', url: '#', desc:'自分で単語を登録できる学習アプリ　どの分野にも'},
+      { title: 'coin climber', stack: ['Python','Dash','Plotly'], thumb: 'source/coincollector_thumb.png', url: 'https://prtimes.jp/main/html/rd/p/000000026.000016959.html', desc:'ジャンプしてコインを集めていく'},
+      { title: 'Hook Adventure', stack: ['Python','Dash','Plotly'], thumb: 'source/hookAdventure_thumb.gif', url: '#', desc:'フックショットでどんどん進め！'},
+      { title: 'Swing Run', stack: ['Python','Dash','Plotly'], thumb: 'source/swingrun_thumb.gif', url: '#', desc:'シンプルな操作　ハイスコアを目指せ！'},
+      { title: 'ピクセルダンジョン', stack: ['Python','Dash','Plotly'], thumb: 'source/pixeldungeon_thumb.gif', url: '#', desc:'オリジナル魔法構築シューティング（RUNE CRAFT DUNGEON前作）'},
+       { title: '胡蝶のゆりかご', stack: ['Python','Dash','Plotly'], thumb: 'source/butterfly4.png', url: '#', desc:'サークルでのチーム開発ゲーム　防衛TD'},
+       { title: 'Blender作品', stack: ['Python','Dash','Plotly'], thumb: 'source/blender_thumb.png', url: '#', desc:'Blenderも一部触れています　ゲーム用のモデル作成等'},
+       { title: 'Chrono Ricochet Classic(WIP)', stack: ['Python','Dash','Plotly'], thumb: 'source/chrono2.png', url: '#', desc:'跳弾を用いて戦うタンクゲーム'},
+       { title: 'Chrono Ricochet3D(WIP)', stack: ['Python','Dash','Plotly'], thumb: 'source/chrono3.png', url: '#', desc:'Chrono RicochetのUE版　開発中'},
     ];
 
     const posts = [
@@ -174,34 +187,43 @@
       { title: 'Dash：マルチページ構成の分割', date: '2025-10-05', url:'#' },
     ];
 
-    const W = document.getElementById('works-grid');
-    works.forEach(w=>{
-      const el = document.createElement('article'); el.className='card';
-      el.innerHTML = `
-        <a href="${w.url}" target="_blank" rel="noopener">
-          <div class="thumb">${w.thumb?`<img src="${w.thumb}" alt="${w.title}">`:'<span style="opacity:.6">(screenshot later)</span>'}</div>
-          <div class="body">
-            <h3>${w.title}</h3>
-            <div class="stack">${w.stack.map(s=>`<span class='pill'>${s}</span>`).join(' ')}</div>
-            <p style="margin:.5rem 0 0; color:var(--muted)">${w.desc||''}</p>
-          </div>
-        </a>`;
-      W.appendChild(el);
-    });
+const W = document.getElementById('works-grid');
 
-    const B = document.getElementById('blog-grid');
-    posts.forEach(p=>{
-      const el = document.createElement('article'); el.className='card';
-      el.innerHTML = `
-        <a href="${p.url}" target="_blank" rel="noopener">
-          <div class="body">
-            <h3>${p.title}</h3>
-            <div class="stack">${p.date}</div>
-            <p style="margin:.5rem 0 0; color:var(--muted)">（本文はZennやはてなに置いてもOK）</p>
-          </div>
-        </a>`;
-      B.appendChild(el);
+works.forEach(w=>{
+  const clickable = w.url && w.url !== '#';
+
+  const el = document.createElement('article');
+  el.className = 'card' + (clickable ? ' clickable' : '');
+
+  // 画像＋本文（URLがあれば <a> で丸ごと包む）
+  const inner = `
+    <div class="thumb">
+      ${w.thumb ? `<img src="${w.thumb}" alt="${w.title}">`
+                 : `<span style="opacity:.6">(screenshot later)</span>`}
+    </div>
+    <div class="body">
+      <h3>${w.title}</h3>
+      <div class="stack">${w.stack.map(s=>`<span class='pill'>${s}</span>`).join(' ')}</div>
+      <p style="margin:.5rem 0 0; color:var(--muted)">${w.desc||''}</p>
+    </div>
+  `;
+
+  // aタグで包む or そのまま
+  el.innerHTML = clickable
+    ? `<a href="${w.url}" target="_blank" rel="noopener">${inner}</a>`
+    : inner;
+
+  // 予備対策：親クリックでも開けるように（オーバーレイ等があっても強制オープン）
+  if (clickable) {
+    el.addEventListener('click', (e)=>{
+      // すでに <a> を直接クリックしているならブラウザに任せる
+      if (e.target.closest('a')) return;
+      window.open(w.url, '_blank', 'noopener');
     });
+  }
+
+  W.appendChild(el);
+});
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
