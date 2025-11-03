@@ -12,7 +12,7 @@
 
   <style>
     :root{
-      --bg: #0b1020; /* deep navy */
+      --bg: #0d0b20; /* deep navy */
       --panel: #121a2d;
       --ink: #e6eefc;
       --muted: #94a3b8;
@@ -65,13 +65,73 @@
 .card > a{ display:block; height:100%; }
 .card a{ text-decoration:none; }
 .card.clickable{ cursor:pointer; } 
+#research .panel {
+  background: #534d69;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+#research h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#research p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+#research .gallery {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+#research .gallery .card {
+  flex: 1 1 30%;
+  max-width: 300px;
+  background: #2a2a2a;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+#research .gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#research .subpanel {
+  border-top: 1px solid #3b2f2f;
+  padding-top: 1rem;
+}
+
+#research .subpanel h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+.subpanel a {
+  color: #64b5f6;          /* 通常時の文字色（明るめブルーなど） */
+  text-decoration: none;   /* 下線消す（必要なら） */
+  transition: color 0.2s ease; /* なめらかに変化 */
+}
+
+.subpanel a:hover {
+  color: #ffcc80;          /* ホバー時の色（淡いオレンジなど） */
+  text-decoration: underline; /* hover時に下線を出すなど */
+  cursor: pointer;         /* マウスカーソルをポインターに */
+}
  </style>
 </head>
 <body>
   <header>
     <div class="wrap">
       <nav>
-        <div class="brand">YUSEI / Portfolio (Test)</div>
+        <div class="brand">Orca / Portfolio</div>
         <div class="tabs">
           <a href="#works">Works</a>
           <a href="#research">Research</a>
@@ -83,46 +143,80 @@
   </header>
 
   <main class="wrap">
-    <section class="hero">
-      <div>
-        <span class="badge">🚢 Game & Data · Unity / Unreal / Python(Dash)</span>
-        <h1>テスト版ポートフォリオ。</h1>
-        <p class="lead">Unityの島探索ゲーム、Unrealのタンクゲーム、Python DashのBIダッシュボード、HMI研究などをカードで一覧。あとでNext.jsへ移行しても、このHTML一枚をそのまま中身として使えます。</p>
-        <div class="cta">
-          <a class="btn primary" href="#works">作品を見る</a>
-          <a class="btn" href="#contact">連絡先</a>
-        </div>
+   <section class="hero">
+    <div>
+      <span class="badge">💻 Software & Research · Unity / Unreal / Kotlin</span>
+      <h1>中山 裕晴 (Yusei Nakayama)</h1>
+      <p class="sub">九州大学大学院 システム情報科学府 情報理工学専攻（修士1年）</p>
+      <p class="lead">
+        制作したアプリケーションや研究等をまとめています。<br>
+        一部の作品は画像クリックで詳細ページへ移動できます。
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#works">作品を見る</a>
       </div>
-      <div id="gl-holder" aria-label="tiny-3D-demo"></div>
-    </section>
+    </div>
+    <div id="gl-holder" aria-label="tiny-3D-demo"></div>
+  </section>
 
     <section id="works">
       <h2>Works</h2>
       <div id="works-grid" class="grid" aria-live="polite"></div>
     </section>
 
-    <section id="research">
-      <h2>Research</h2>
-      <div class="panel">
-        <p><strong>Topic:</strong> 自動運転での権限移譲時のHMI（情報提示）設計。Unityベースのドライビングシミュレータで実験・分析。</p>
-        <p><strong>Artifacts:</strong> 学会スライド, ポスター, 既存研究レビュー（PDFリンク想定）。</p>
-      </div>
-    </section>
+  <section id="research">
+  <h2>Research</h2>
+
+  <!-- 研究タイトル -->
+  <div class="panel">
+    <h3>自動運転システムにおける権限移譲時の情報提示設計</h3>
+
+    <!-- 概要 -->
+    <p>
+      自動運転システムが限界を迎えた際に、運転権限を人間ドライバへ安全かつ確実に移譲するための
+      HMI（Human–Machine Interface）設計について研究しています。<br>
+      Unityベースのドライビングシミュレータを用いて、提示手法の違いが運転者の反応や操作精度に与える影響を分析しています。
+    </p>
+
+    <!-- 画像ギャラリー（後でスクショを入れる想定） -->
+    <div class="gallery">
+      <div class="card"><img src="source/research/res1.jpg" alt="Driving Simulator Screenshot 1"></div>
+      <div class="card"><img src="source/research/res2.png" alt="Driving Simulator Screenshot 2"></div>
+      
+    </div>
+
+    <!-- 学会発表など -->
+   <div class="subpanel">
+  <h4>学会発表</h4>
+  <p>
+    <a href="https://www.its-jp.org/katsudou/its_symposium/22nd2024/" target="_blank" rel="noopener noreferrer">
+      2024年12月 第22回ITSシンポジウム2024
+    </a> にて発表。
+  </p>
+</div>
+
+  </div>
+</section>
 
     <section id="blog">
       <h2>Notes / Blog</h2>
       <div id="blog-grid" class="grid"></div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="panel">
-        <p>GitHub / X(Twitter) / Email をここに。フォームは <em>formspree.io</em> などの外部SaaSを後で接続できます。</p>
-      </div>
-    </section>
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="panel">
+    <p>GitHub / X(Twitter) / Email</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/Orca76" target="_blank" rel="noopener">GitHub</a>
+      <!--<a class="btn" href="https://x.com/Yusei_dev" target="_blank" rel="noopener">X (Twitter)</a>-->
+      <!--<a class="btn" href="mailto:yusei@example.com">Email</a>-->
+    </div>
+  </div>
+</section>
 
     <footer>
-      <p>© <span id="year"></span> YUSEI. Built with plain HTML + a sprinkle of three.js. Ready to deploy on Vercel as static hosting.</p>
+      <p>© <span id="year"></span> Orca. Built with plain HTML + a sprinkle of three.js. Ready to deploy on Vercel as static hosting.</p>
     </footer>
   </main>
 
@@ -168,17 +262,18 @@
   <!-- simple data-driven cards (edit here) -->
   <script>
     const works = [
-     {title: 'アイルトレイル (WIP)',stack: ['Unity','C#','Procedural Gen'],thumb: 'source/rogue-seas-thumb.png', url: '#',desc:'島探索×ローグライク。航海・セントリー召喚。',},
-      { title: 'RUNE CRAFT DUNGEON', stack: ['Unreal','Blueprint'], thumb: 'source/RuneCraft-thumb.png', url: '#', desc:'オリジナル魔法構築、自動生成ダンジョン探索'},
-      { title: '単語学習アプリ', stack: ['Python','Dash','Plotly'], thumb: 'source/studyword_thumb.png', url: '#', desc:'自分で単語を登録できる学習アプリ　どの分野にも'},
-      { title: 'coin climber', stack: ['Python','Dash','Plotly'], thumb: 'source/coincollector_thumb.png', url: 'https://prtimes.jp/main/html/rd/p/000000026.000016959.html', desc:'ジャンプしてコインを集めていく'},
-      { title: 'Hook Adventure', stack: ['Python','Dash','Plotly'], thumb: 'source/hookAdventure_thumb.gif', url: '#', desc:'フックショットでどんどん進め！'},
-      { title: 'Swing Run', stack: ['Python','Dash','Plotly'], thumb: 'source/swingrun_thumb.gif', url: '#', desc:'シンプルな操作　ハイスコアを目指せ！'},
-      { title: 'ピクセルダンジョン', stack: ['Python','Dash','Plotly'], thumb: 'source/pixeldungeon_thumb.gif', url: '#', desc:'オリジナル魔法構築シューティング（RUNE CRAFT DUNGEON前作）'},
-       { title: '胡蝶のゆりかご', stack: ['Python','Dash','Plotly'], thumb: 'source/butterfly4.png', url: '#', desc:'サークルでのチーム開発ゲーム　防衛TD'},
-       { title: 'Blender作品', stack: ['Python','Dash','Plotly'], thumb: 'source/blender_thumb.png', url: '#', desc:'Blenderも一部触れています　ゲーム用のモデル作成等'},
-       { title: 'Chrono Ricochet Classic(WIP)', stack: ['Python','Dash','Plotly'], thumb: 'source/chrono2.png', url: '#', desc:'跳弾を用いて戦うタンクゲーム'},
-       { title: 'Chrono Ricochet3D(WIP)', stack: ['Python','Dash','Plotly'], thumb: 'source/chrono3.png', url: '#', desc:'Chrono RicochetのUE版　開発中'},
+     {title: 'アイルトレイル (WIP)',stack: ['Unity','C#','タワーディフェンス'],thumb: 'source/rogue-seas-thumb.png', url: 'https://github.com/Orca76/rogue-seas',desc:'島探索×ローグライク。航海・セントリー召喚。',},
+      { title: 'RUNE CRAFT DUNGEON', stack: ['Unity','C#','ローグライク'], thumb: 'source/RuneCraft-thumb.png', url: 'https://github.com/Orca76/pixelShooting', desc:'オリジナル魔法構築、自動生成ダンジョン探索'},
+      { title: '単語学習アプリ', stack: ['Kotlin','Android Studio','XML'], thumb: 'source/studyword_thumb.png', url: '#', desc:'自分で単語を登録できる学習アプリ　どの分野にも'},
+      { title: 'coin climber', stack: ['Unity','C#',"アーケード"], thumb: 'source/coincollector_thumb.png', url: 'https://prtimes.jp/main/html/rd/p/000000026.000016959.html', desc:'ジャンプしてコインを集めていく'},
+      { title: 'Hook Adventure', stack: ['Unity','C#','2Dアクション'], thumb: 'source/hookAdventure_thumb.gif', url: 'https://unityroom.com/games/hook_adventure', desc:'フックショットでどんどん進め！'},
+      { title: 'Swing Run', stack: ['Unity','C#','アーケード'], thumb: 'source/swingrun_thumb.gif', url: 'https://unityroom.com/games/swing_run', desc:'シンプルな操作　ハイスコアを目指せ！'},
+      { title: 'ピクセルダンジョン', stack: ['Unity','C#','シューティング'], thumb: 'source/pixeldungeon_thumb.gif', url: 'https://unityroom.com/games/pixel_dungeon', desc:'オリジナル魔法構築シューティング（RUNE CRAFT DUNGEON前作）'},
+       { title: '胡蝶のゆりかご', stack: ['Unity','C#','タワーディフェンス'], thumb: 'source/butterfly4.png', url: '#', desc:'サークルでのチーム開発ゲーム　防衛TD'},
+       { title: 'Blender作品', stack: ['Blender'], thumb: 'source/blender_thumb.png', url: '#', desc:'Blenderも一部触れています　ゲーム用のモデル作成等'},
+       { title: 'Chrono Ricochet Classic(WIP)', stack: ['Unity','C#','シューティング'], thumb: 'source/chrono2.png', url: '#', desc:'跳弾を用いて戦うタンクゲーム'},
+       { title: 'Chrono Ricochet3D(WIP)', stack: ['UE','C++','シューティング'], thumb: 'source/chrono3.png', url: '#', desc:'Chrono RicochetのUE版　開発中'},
+       
     ];
 
     const posts = [
