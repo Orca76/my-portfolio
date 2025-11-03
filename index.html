@@ -10,14 +10,24 @@
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0ea5e9" />
 
-<link rel="stylesheet" href="/asset/css/style.css">
+  <link rel="stylesheet" href="/asset/css/style.css">
+
+  <!-- Import Map for three.js + OrbitControls (module) -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://esm.run/three@0.160.0",
+        "three/examples/jsm/controls/OrbitControls.js": "https://esm.run/three@0.160.0/examples/jsm/controls/OrbitControls.js"
+      }
+    }
+  </script>
 </head>
 
 <body>
   <header>
     <div class="wrap">
       <nav>
-        <div class="brand">Orca / Portfolio</div>
+        <div class="brand">Yusei / Portfolio</div>
         <div class="tabs">
           <a href="#works">Works</a>
           <a href="#research">Research</a>
@@ -29,193 +39,301 @@
   </header>
 
   <main class="wrap">
-   <section class="hero">
-    <div>
-      <span class="badge">💻 Software & Research · Unity / Unreal / Kotlin</span>
-      <h1>中山 裕晴 (Yusei Nakayama)</h1>
-      <p class="sub">九州大学大学院 システム情報科学府 情報理工学専攻（修士1年）</p>
-      <p class="lead">
-        制作したアプリケーションや研究等をまとめています。<br>
-        一部の作品は画像クリックで詳細ページへ移動できます。
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="#works">作品を見る</a>
+    <section class="hero">
+      <div>
+        <span class="badge">💻 Software & Research · Unity / Unreal / Kotlin</span>
+        <h1>中山 裕晴 (Yusei Nakayama)</h1>
+        <p class="sub">九州大学大学院 システム情報科学府 情報理工学専攻（修士1年）</p>
+        <p class="lead">
+          制作したアプリケーションや研究等をまとめています。<br>
+          一部の作品は画像クリックで詳細ページへ移動できます。
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#works">作品を見る</a>
+        </div>
       </div>
-    </div>
-    <div id="gl-holder" aria-label="tiny-3D-demo"></div>
-  </section>
+      <!-- three.js holder（ここに太陽系を描画） -->
+      <div id="gl-holder" aria-label="pastel mini solar system" style="min-height:320px;"></div>
+    </section>
 
     <section id="works">
       <h2>Works</h2>
       <div id="works-grid" class="grid" aria-live="polite"></div>
     </section>
 
-  <section id="research">
-  <h2>Research</h2>
+    <section id="research">
+      <h2>Research</h2>
 
-  <!-- 研究タイトル -->
-  <div class="panel">
-    <h3>自動運転システムにおける権限移譲時の情報提示手法の検討</h3>
+      <div class="panel">
+        <h3>自動運転システムにおける権限移譲時の情報提示手法の検討</h3>
 
-    <!-- 概要 -->
-    <p>
-      自動運転システムが限界を迎えた際に、運転権限を人間ドライバへ安全かつ確実に移譲するための
-      HMI（Human–Machine Interface）設計について研究しています。<br>
-      Unityベースのドライビングシミュレータを用いて、提示手法の違いが運転者の反応や操作精度に与える影響を分析しています。
-    </p>
+        <p>
+          自動運転システムが限界を迎えた際に、運転権限を人間ドライバへ安全かつ確実に移譲するための
+          HMI（Human–Machine Interface）設計について研究しています。<br>
+          Unityベースのドライビングシミュレータを用いて、提示手法の違いが運転者の反応や操作精度に与える影響を分析しています。
+        </p>
 
-    <!-- 画像ギャラリー（後でスクショを入れる想定） -->
-    <div class="gallery">
-      <div class="card"><img src="source/research/res1.jpg" alt="Driving Simulator Screenshot 1"></div>
-      <div class="card"><img src="source/research/res2.png" alt="Driving Simulator Screenshot 2"></div>
-      
-    </div>
+        <div class="gallery">
+          <div class="card"><img src="source/research/res1.jpg" alt="Driving Simulator Screenshot 1"></div>
+          <div class="card"><img src="source/research/res2.png" alt="Driving Simulator Screenshot 2"></div>
+        </div>
 
-    <!-- 学会発表など -->
-   <div class="subpanel">
-  <h4>学会発表</h4>
-  <p>
-    <a href="https://www.its-jp.org/katsudou/its_symposium/22nd2024/" target="_blank" rel="noopener noreferrer">
-      2024年12月 第22回ITSシンポジウム2024
-    </a> にて発表。
-  </p>
-</div>
+        <div class="subpanel">
+          <h4>学会発表</h4>
+          <p>
+            <a href="https://www.its-jp.org/katsudou/its_symposium/22nd2024/" target="_blank" rel="noopener noreferrer">
+              2024年12月 第22回ITSシンポジウム2024
+            </a> にて発表。
+          </p>
+        </div>
+      </div>
+    </section>
 
-  </div>
-</section>
+    <section id="skills">
+      <h2>Tech Stack</h2>
+      <div class="panel">
+        <ul class="tech-list">
+          <li><strong>C#</strong> — Unityによる2D/3Dゲーム開発、ドライビングシミュレータ開発</li>
+          <li><strong>C++</strong> — Unreal Engineによる3Dゲーム開発</li>
+          <li><strong>Kotlin</strong> — Android Studioによるモバイルアプリ開発</li>
+          <li><strong>Java</strong> — Androidアプリ開発（Kotlin導入前に使用）</li>
+          <li><strong>JavaScript</strong> — ポートフォリオサイト構築</li>
+          <li><strong>HTML / CSS</strong> — Webサイト構築・デザイン</li>
+          <li><strong>Python</strong> — データ分析（バイト業務）・ツール開発、RaspberryPi、授業での使用など</li>
+          <li><strong>R</strong> — 実験データの統計分析</li>
+          <li><strong>C</strong> — 授業、arduino等</li>
+          <li><strong>MATLAB</strong> — 授業内での数値計算・シミュレーション</li>
+        </ul>
+      </div>
+    </section>
 
-<section id="skills">
-  <h2>Tech Stack</h2>
-  <div class="panel">
-    <ul class="tech-list">
-      <li><strong>C#</strong> — Unityによる2D/3Dゲーム開発、ドライビングシミュレータ開発</li>
-      <li><strong>C++</strong> — Unreal Engineによる3Dゲーム開発</li>
-      <li><strong>Kotlin</strong> — Android Studioによるモバイルアプリ開発</li>
-      <li><strong>Java</strong> — Androidアプリ開発（Kotlin導入前に使用）</li>
-      <li><strong>JavaScript</strong> — ポートフォリオサイト構築</li>
-      <li><strong>HTML / CSS</strong> — Webサイト構築・デザイン</li>
-      <li><strong>Python</strong> — データ分析（バイト業務）・ツール開発、RaspberryPi、授業での使用など</li>
-      <li><strong>R</strong> — 実験データの統計分析</li>
-      <li><strong>C</strong> — 授業、arduino等</li>
-      <li><strong>MATLAB</strong> — 授業内での数値計算・シミュレーション</li>
-    </ul>
-  </div>
-</section>
-
-
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="panel">
-    <p>GitHub / X(Twitter) / Email</p>
-    <div class="cta">
-      <a class="btn primary" href="https://github.com/Orca76" target="_blank" rel="noopener">GitHub</a>
-      <!--<a class="btn" href="https://x.com/Yusei_dev" target="_blank" rel="noopener">X (Twitter)</a>-->
-      <!--<a class="btn" href="mailto:yusei@example.com">Email</a>-->
-    </div>
-  </div>
-</section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="panel">
+        <p>GitHub / X(Twitter) / Email</p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/Orca76" target="_blank" rel="noopener">GitHub</a>
+          <!-- <a class="btn" href="https://x.com/Yusei_dev" target="_blank" rel="noopener">X (Twitter)</a> -->
+          <!-- <a class="btn" href="mailto:yusei@example.com">Email</a> -->
+        </div>
+      </div>
+    </section>
 
     <footer>
-     <p>© 2025 Yusei Nakayama. Created with HTML & CSS, using three.js for visual effects. Hosted on Vercel.</p>
-
+      <p>© <span id="year"></span> Yusei Nakayama. Created with HTML & CSS, using three.js for visual effects. Hosted on Vercel.</p>
     </footer>
   </main>
 
-  <!-- three.js (tiny demo) -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <script>
-    // --- minimal three.js cube to show motion ---
+  <!-- three.js: パステル太陽系（module版） -->
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
     const holder = document.getElementById('gl-holder');
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, holder.clientWidth/holder.clientHeight, 0.1, 100);
-    camera.position.set(2.2, 1.8, 3.4);
+
+    // Camera & renderer
+    const camera = new THREE.PerspectiveCamera(55, holder.clientWidth/holder.clientHeight, 0.1, 1000);
+    camera.position.set(0, 12, 26);
 
     const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(holder.clientWidth, holder.clientHeight);
     holder.appendChild(renderer.domElement);
 
-    const geo = new THREE.BoxGeometry(1.2, .9, 2.2);
-    const mat = new THREE.MeshStandardMaterial({ color: 0x8ab4ff, metalness: 0.65, roughness: 0.25 });
-    const mesh = new THREE.Mesh(geo, mat);
-    mesh.rotation.y = 0.4;
-    scene.add(mesh);
+    // Controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
 
-    const light1 = new THREE.DirectionalLight(0xffffff, 1.0); light1.position.set(2,3,4); scene.add(light1);
-    const light2 = new THREE.PointLight(0x7aa2f7, 0.8, 8); light2.position.set(-2,1.2,1); scene.add(light2);
-    const ambient = new THREE.AmbientLight(0xffffff, 0.35); scene.add(ambient);
+    // Stars (background points)
+    const starGeo = new THREE.BufferGeometry();
+    const starCount = 800;
+    const pos = new Float32Array(starCount*3);
+    for (let i=0;i<starCount;i++){
+      const r = 220*(0.6+Math.random()*0.4), th = Math.random()*Math.PI*2, ph = (Math.random()-.5)*Math.PI;
+      pos[i*3+0] = r*Math.cos(th)*Math.cos(ph);
+      pos[i*3+1] = r*Math.sin(ph);
+      pos[i*3+2] = r*Math.sin(th)*Math.cos(ph);
+    }
+    starGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ size:1.2, sizeAttenuation:true, color:0xffffff, transparent:true, opacity:0.85 }));
+    scene.add(stars);
 
+    // Utility: make orbit ring
+    function makeOrbit(radius, color){
+      const g = new THREE.BufferGeometry();
+      const segments = 128;
+      const pts = new Float32Array(segments*3);
+      for(let i=0;i<segments;i++){
+        const a = i/segments * Math.PI*2;
+        pts[i*3+0] = Math.cos(a)*radius;
+        pts[i*3+1] = 0;
+        pts[i*3+2] = Math.sin(a)*radius;
+      }
+      g.setAttribute('position', new THREE.BufferAttribute(pts,3));
+      const m = new THREE.LineLoop(g, new THREE.LineBasicMaterial({ color, transparent:true, opacity:.35 }));
+      return m;
+    }
+
+    // Utility: pastel sphere (lighting-independent)
+    function pastelSphere(radius, color){
+      const geo = new THREE.SphereGeometry(radius, 48, 32);
+      const mat = new THREE.MeshBasicMaterial({ color });
+      return new THREE.Mesh(geo, mat);
+    }
+
+    // Optional: Saturn-like ring mesh
+    function ringMesh(innerR, outerR, color){
+      const geo = new THREE.RingGeometry(innerR, outerR, 64);
+      const mat = new THREE.MeshBasicMaterial({ color, side:THREE.DoubleSide, transparent:true, opacity:.85 });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.rotation.x = -Math.PI/2;
+      return mesh;
+    }
+
+    // Sun + glow
+    const sun = pastelSphere(2.6, 0xffe08a);
+    scene.add(sun);
+    const sunGlow = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: (()=>{ // soft radial glow via canvas
+        const c = document.createElement('canvas'); c.width=c.height=256;
+        const ctx=c.getContext('2d');
+        const g=ctx.createRadialGradient(128,128,20,128,128,128);
+        g.addColorStop(0,'rgba(255,240,160,1)');
+        g.addColorStop(0.5,'rgba(255,200,120,.45)');
+        g.addColorStop(1,'rgba(255,200,120,0)');
+        ctx.fillStyle=g; ctx.fillRect(0,0,256,256);
+        const t = new THREE.CanvasTexture(c); t.anisotropy=4; return t;
+      })(),
+      transparent:true, depthWrite:false
+    }));
+    sunGlow.scale.set(9,9,1);
+    scene.add(sunGlow);
+
+    // Planets (miniature, pastel)
+    const planets = [];
+    // radius, orbitR, speed, color
+    const defs = [
+      { r:0.6, R: 5.0, sp: 0.020, color:0xb8e0d2 }, // mint
+      { r:0.9, R: 7.2, sp: 0.014, color:0xf7c5cc }, // pink
+      { r:1.0, R: 9.6, sp: 0.011, color:0xc7d2fe }, // periwinkle
+      { r:1.1, R:12.4, sp: 0.009, color:0xfde68a }, // pale yellow
+      { r:0.9, R:15.2, sp: 0.007, color:0xd1fae5, ring:true } // greenish with ring
+    ];
+
+    defs.forEach((d)=>{
+      const g = new THREE.Group();
+      const body = pastelSphere(d.r, d.color);
+      body.position.x = d.R;
+      g.add(body);
+      // orbit line
+      g.add(makeOrbit(d.R, 0x9fb3d1));
+      // optional ring
+      if(d.ring){
+        const ring = ringMesh(d.r*1.8, d.r*3.0, 0xdbeafe);
+        ring.position.copy(body.position);
+        ring.rotation.z = 0.5;
+        g.add(ring);
+      }
+      scene.add(g);
+      planets.push({ group:g, body, angle: Math.random()*Math.PI*2, speed:d.sp, R:d.R });
+    });
+
+    // small crescent moon sprite around the 3rd planet
+    // small spherical moon around the 3rd planet
+const moon = pastelSphere(0.35, 0xffffff); // 半径や色はお好みで
+planets[2].group.add(moon);
+
+    // Animation
     const clock = new THREE.Clock();
     function tick(){
-      const t = clock.getElapsedTime();
-      mesh.rotation.y += 0.0045; mesh.position.y = 0.05*Math.sin(t*1.5);
-      renderer.render(scene, camera); requestAnimationFrame(tick);
+      const dt = clock.getDelta();
+      stars.rotation.y += 0.002 * dt * 60;
+
+      planets.forEach(p=>{
+        p.angle += p.speed * dt * 60;
+        const x = Math.cos(p.angle)*p.R, z = Math.sin(p.angle)*p.R;
+        // planet body is first child in the group
+        p.group.children[0].position.set(x,0,z);
+        // keep ring (if any) with the body
+        for (let c of p.group.children){
+          if (c instanceof THREE.Mesh && c.geometry instanceof THREE.RingGeometry){
+            c.position.set(x,0,z);
+          }
+        }
+      });
+
+     // moon orbits around its host (3rd planet)
+const host = planets[2].group.children[0];
+moon.position.set(
+  host.position.x + 1.7*Math.cos(clock.elapsedTime*1.8),
+  0.2,
+  host.position.z + 1.7*Math.sin(clock.elapsedTime*1.8)
+);
+
+      controls.update();
+      renderer.render(scene, camera);
+      requestAnimationFrame(tick);
     }
     tick();
 
-    addEventListener('resize', () => {
-      const w = holder.clientWidth, h = holder.clientHeight;
+    // Resize
+    addEventListener('resize', ()=>{
+      const w = holder.clientWidth, h = holder.clientHeight || 320;
       camera.aspect = w/h; camera.updateProjectionMatrix();
       renderer.setSize(w, h);
     });
   </script>
 
-  <!-- simple data-driven cards (edit here) -->
+  <!-- Works: data-driven cards -->
   <script>
     const works = [
-     {title: 'アイルトレイル (WIP)',stack: ['Unity','C#','タワーディフェンス'],thumb: 'source/rogue-seas-thumb.png', url: 'https://github.com/Orca76/rogue-seas',desc:'島探索×ローグライク。航海・セントリー召喚。',},
+      {title: 'アイルトレイル (WIP)',stack: ['Unity','C#','タワーディフェンス'],thumb: 'source/rogue-seas-thumb.png', url: 'https://github.com/Orca76/rogue-seas',desc:'島探索×ローグライク。航海・セントリー召喚。'},
       { title: 'RUNE CRAFT DUNGEON', stack: ['Unity','C#','ローグライク'], thumb: 'source/RuneCraft-thumb.png', url: 'https://github.com/Orca76/pixelShooting', desc:'オリジナル魔法構築、自動生成ダンジョン探索'},
       { title: '単語学習アプリ', stack: ['Kotlin','Android Studio','XML'], thumb: 'source/studyword_thumb.png', url: '#', desc:'自分で単語を登録できる学習アプリ　どの分野にも'},
       { title: 'coin climber', stack: ['Unity','C#',"アーケード"], thumb: 'source/coincollector_thumb.png', url: 'https://prtimes.jp/main/html/rd/p/000000026.000016959.html', desc:'ジャンプしてコインを集めていく'},
       { title: 'Hook Adventure', stack: ['Unity','C#','2Dアクション'], thumb: 'source/hookAdventure_thumb.gif', url: 'https://unityroom.com/games/hook_adventure', desc:'フックショットでどんどん進め！'},
       { title: 'Swing Run', stack: ['Unity','C#','アーケード'], thumb: 'source/swingrun_thumb.gif', url: 'https://unityroom.com/games/swing_run', desc:'シンプルな操作　ハイスコアを目指せ！'},
       { title: 'ピクセルダンジョン', stack: ['Unity','C#','シューティング'], thumb: 'source/pixeldungeon_thumb.gif', url: 'https://unityroom.com/games/pixel_dungeon', desc:'オリジナル魔法構築シューティング（RUNE CRAFT DUNGEON前作）'},
-       { title: '胡蝶のゆりかご', stack: ['Unity','C#','タワーディフェンス'], thumb: 'source/butterfly4.png', url: '#', desc:'サークルでのチーム開発ゲーム　防衛TD'},
-       { title: 'Blender作品', stack: ['Blender'], thumb: 'source/blender_thumb.png', url: '#', desc:'Blenderも一部触れています　ゲーム用のモデル作成等'},
-       { title: 'Chrono Ricochet Classic(WIP)', stack: ['Unity','C#','シューティング'], thumb: 'source/chrono2.png', url: '#', desc:'跳弾を用いて戦うタンクゲーム'},
-       { title: 'Chrono Ricochet3D(WIP)', stack: ['UE','C++','シューティング'], thumb: 'source/chrono3.png', url: '#', desc:'Chrono RicochetのUE版　開発中'},
-       
+      { title: '胡蝶のゆりかご', stack: ['Unity','C#','タワーディフェンス'], thumb: 'source/butterfly4.png', url: '#', desc:'サークルでのチーム開発ゲーム　防衛TD'},
+      { title: 'Blender作品', stack: ['Blender'], thumb: 'source/blender_thumb.png', url: '#', desc:'Blenderも一部触れています　ゲーム用のモデル作成等'},
+      { title: 'Chrono Ricochet Classic(WIP)', stack: ['Unity','C#','シューティング'], thumb: 'source/chrono2.png', url: '#', desc:'跳弾を用いて戦うタンクゲーム'},
+      { title: 'Chrono Ricochet3D(WIP)', stack: ['UE','C++','シューティング'], thumb: 'source/chrono3.png', url: '#', desc:'Chrono RicochetのUE版　開発中'}
     ];
 
+    const W = document.getElementById('works-grid');
 
+    works.forEach(w=>{
+      const clickable = w.url && w.url !== '#';
+      const el = document.createElement('article');
+      el.className = 'card' + (clickable ? ' clickable' : '');
 
-const W = document.getElementById('works-grid');
+      const inner = `
+        <div class="thumb">
+          ${w.thumb ? `<img src="${w.thumb}" alt="${w.title}">`
+                     : `<span style="opacity:.6">(screenshot later)</span>`}
+        </div>
+        <div class="body">
+          <h3>${w.title}</h3>
+          <div class="stack">${w.stack.map(s=>`<span class='pill'>${s}</span>`).join(' ')}</div>
+          <p style="margin:.5rem 0 0; color:var(--muted)">${w.desc||''}</p>
+        </div>
+      `;
 
-works.forEach(w=>{
-  const clickable = w.url && w.url !== '#';
+      el.innerHTML = clickable
+        ? `<a href="${w.url}" target="_blank" rel="noopener">${inner}</a>`
+        : inner;
 
-  const el = document.createElement('article');
-  el.className = 'card' + (clickable ? ' clickable' : '');
+      if (clickable) {
+        el.addEventListener('click', (e)=>{
+          if (e.target.closest('a')) return;
+          window.open(w.url, '_blank', 'noopener');
+        });
+      }
 
-  // 画像＋本文（URLがあれば <a> で丸ごと包む）
-  const inner = `
-    <div class="thumb">
-      ${w.thumb ? `<img src="${w.thumb}" alt="${w.title}">`
-                 : `<span style="opacity:.6">(screenshot later)</span>`}
-    </div>
-    <div class="body">
-      <h3>${w.title}</h3>
-      <div class="stack">${w.stack.map(s=>`<span class='pill'>${s}</span>`).join(' ')}</div>
-      <p style="margin:.5rem 0 0; color:var(--muted)">${w.desc||''}</p>
-    </div>
-  `;
-
-  // aタグで包む or そのまま
-  el.innerHTML = clickable
-    ? `<a href="${w.url}" target="_blank" rel="noopener">${inner}</a>`
-    : inner;
-
-  // 予備対策：親クリックでも開けるように（オーバーレイ等があっても強制オープン）
-  if (clickable) {
-    el.addEventListener('click', (e)=>{
-      // すでに <a> を直接クリックしているならブラウザに任せる
-      if (e.target.closest('a')) return;
-      window.open(w.url, '_blank', 'noopener');
+      W.appendChild(el);
     });
-  }
-
-  W.appendChild(el);
-});
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
