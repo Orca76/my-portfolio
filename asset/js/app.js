@@ -177,7 +177,7 @@ const works = [
   { title: '胡蝶のゆりかご', stack: ['Unity', 'C#', 'タワーディフェンス'], thumb: 'source/butterfly4.png', url: '#', desc: 'サークルでのチーム開発ゲーム　防衛TD' },
   { title: 'Blender作品', stack: ['Blender'], thumb: 'source/blender_thumb.png', url: '#', desc: 'Blenderも一部触れています　ゲーム用のモデル作成等' },
   { title: 'Chrono Ricochet Classic(WIP)', stack: ['Unity', 'C#', 'シューティング'], thumb: 'source/chrono2.png', url: '#', desc: '跳弾を用いて戦うタンクゲーム' },
-  { title: 'Chrono Ricochet3D(WIP)', stack: ['UE', 'C++', 'シューティング'], thumb: 'source/chrono3.png', url: '#', desc: 'Chrono RicochetのUE版　開発中' }
+  { title: 'Chrono Ricochet3D(WIP)', stack: ['UE', 'C++', 'シューティング'], thumb: 'source/chrono3.png', url: '#', desc: 'Chrono Ricochetの3D版　開発中' }
 ];
 
 const W = document.getElementById('works-grid');
