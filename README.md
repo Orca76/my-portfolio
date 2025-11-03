@@ -1,6 +1,6 @@
 # 🐋 Orca / Portfolio
 
-**中山 裕晴 (Yusei Nakayama)** の制作・研究をまとめたポートフォリオサイトです。  
+制作・研究をまとめたポートフォリオサイトです。  
 Unity / Unreal / Kotlin / Python / Web など、これまでの制作実績と研究概要を掲載しています。
 
 🌐 **公開サイト:** [https://my-portfolio-git-main-orcas-projects-cc20284e.vercel.app/](https://my-portfolio-git-main-orcas-projects-cc20284e.vercel.app/)
