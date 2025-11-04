@@ -3,7 +3,7 @@
 制作・研究をまとめたポートフォリオサイトです。  
 Unity / Unreal / Kotlin / Python / Web など、これまでの制作実績と研究概要を掲載しています。
 
-🌐 **公開サイト:** [https://my-portfolio-git-main-orcas-projects-cc20284e.vercel.app/](https://my-portfolio-git-main-orcas-projects-cc20284e.vercel.app/)
+🌐 **公開サイト:** [https://my-portfolio-liard-delta-81.vercel.app/](https://my-portfolio-liard-delta-81.vercel.app/)
 
 ---
 
