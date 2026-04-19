@@ -1,0 +1,87 @@
+#research .panel {
+  padding: 2rem;
+  border-radius: 1rem;
+  background: #534d69;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#research h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+#research p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+#research .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#research .gallery .card {
+  flex: 1 1 30%;
+  max-width: 300px;
+  background: #2a2a2a;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+#research .gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#research .subpanel {
+  padding-top: 1rem;
+  border-top: 1px solid #3b2f2f;
+}
+
+#research .subpanel h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.subpanel a {
+  color: #64b5f6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.subpanel a:hover {
+  color: #ffcc80;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#skills .panel {
+  margin-top: 1rem;
+  padding: 1.5rem 2rem;
+}
+
+#skills h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.tech-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.8;
+}
+
+.tech-list li {
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+
+.tech-list strong {
+  color: var(--accent);
+}

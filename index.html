@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YUSEI — Portfolio (Test)</title>
-  <meta name="description" content="Yusei's test portfolio: Unity / Unreal / Python (Dash) / HMI research." />
+  <title>YUSEI — Portfolio</title>
+  <meta name="description" content="Yusei Nakayama's portfolio site. Projects, research, and tech stack in one place." />
   <meta property="og:title" content="YUSEI — Portfolio" />
-  <meta property="og:description" content="Unity / Unreal / Python (Dash) / HMI research." />
+  <meta property="og:description" content="Projects, research, and tech stack in one place." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0ea5e9" />
 
-  <link rel="stylesheet" href="/asset/css/style.css">
+  <link rel="stylesheet" href="/asset/css/base.css">
+  <link rel="stylesheet" href="/asset/css/components.css">
 
   <!-- Import Map for three.js + OrbitControls (module) -->
   <script type="importmap">
@@ -52,8 +53,7 @@
           <a class="btn primary" href="#works">作品を見る</a>
         </div>
       </div>
-      <!-- three.js holder（ここに太陽系を描画） -->
-      <div id="gl-holder" aria-label="pastel mini solar system" style="min-height:320px;"></div>
+      <div id="gl-holder" aria-label="pastel mini solar system"></div>
     </section>
 
     <section id="works">
@@ -122,7 +122,6 @@
     </footer>
   </main>
 
-  <!-- 外部JS（モジュール） -->
   <script type="module" src="/asset/js/app.js"></script>
 </body>
 </html>
